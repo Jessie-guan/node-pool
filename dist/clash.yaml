@@ -1,11 +1,9 @@
-# auto-generated (github split-route edition)
-# github.com -> NODE(WARP) / githubassets+raw -> DIRECT
+# minimal build: 1 group / 2 rules
+# nodes: 3
 mixed-port: 7890
 allow-lan: false
 mode: rule
-log-level: info
-unified-delay: true
-tcp-concurrent: true
+log-level: warning
 proxies:
 - cipher: aes-256-gcm
   name: 'ITA #4'
@@ -35,37 +33,16 @@ proxies:
   udp: true
   name: WARP-CF
 proxy-groups:
-- name: AUTO
+- name: PROXY
   type: url-test
   url: https://www.gstatic.com/generate_204
-  interval: 180
+  interval: 300
   tolerance: 50
   lazy: false
   proxies:
   - 'ITA #4'
   - 'ITA #10'
   - WARP-CF
-- name: NODE
-  type: select
-  proxies:
-  - WARP-CF
-  - AUTO
-  - 'ITA #4'
-  - 'ITA #10'
-  - DIRECT
 rules:
-- DOMAIN-SUFFIX,github.com,NODE
-- DOMAIN-SUFFIX,github.dev,NODE
-- DOMAIN-SUFFIX,githubassets.com,DIRECT
-- DOMAIN-SUFFIX,githubusercontent.com,DIRECT
-- DOMAIN-SUFFIX,github.io,DIRECT
-- DOMAIN-SUFFIX,youtube.com,AUTO
-- DOMAIN-SUFFIX,googlevideo.com,AUTO
-- DOMAIN-KEYWORD,googlevideo,AUTO
-- DOMAIN-SUFFIX,google.com,AUTO
-- DOMAIN-SUFFIX,netflix.com,AUTO
-- DOMAIN-SUFFIX,telegram.org,AUTO
-- IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
 - GEOIP,CN,DIRECT
-- MATCH,AUTO
+- MATCH,PROXY
