@@ -1,0 +1,64 @@
+name: daily-node-refresh
+
+# 每天 UTC 03:17（北京时间 11:17）自动清洗一次节点池
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch: {}      # 也可以手动点一下立即跑
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: 拉取仓库
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 安装依赖
+        run: pip install pyyaml
+
+      - name: 采集节点（全网订阅源）
+        run: python run.py collect
+
+      - name: 测速清洗（mihomo 内核）
+        run: python run.py probe
+
+      - name: 生成极简配置
+        run: python run.py build
+
+      - name: 统计
+        run: |
+          echo "### 本次结果" >> $GITHUB_STEP_SUMMARY
+          python - <<'PY' >> $GITHUB_STEP_SUMMARY
+          import json, os
+          pool = json.load(open("pool.json", encoding="utf-8")) if os.path.exists("pool.json") else []
+          alive = json.load(open("alive.json", encoding="utf-8")) if os.path.exists("alive.json") else []
+          print(f"- 采集节点：**{len(pool)}**")
+          print(f"- 清洗后可用：**{len(alive)}**")
+          print("")
+          print("| 带宽 | 延迟 | 节点 |")
+          print("|---|---|---|")
+          for n in alive[:15]:
+              print(f'| {n["_bps"]*8/1048576:.2f} Mbps | {n["_delay"]} ms | {n["name"][:36]} |')
+          PY
+
+      - name: 提交产物
+        run: |
+          git config user.name  "node-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add dist/clash.yaml dist/sub.txt alive.json pool.json || true
+          if git diff --staged --quiet; then
+            echo "无变化，跳过提交"
+          else
+            git commit -m "chore: 节点池每日清洗 $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
