@@ -1,23 +1,119 @@
-# minimal build: 1 group / 2 rules
-# nodes: 3
+# auto-generated 2026-11-22 07:41 UTC
+# available 15 nodes after cleaning
+# groups: AUTO (url-test) / NODE (select)
 mixed-port: 7890
 allow-lan: false
 mode: rule
 log-level: warning
+unified-delay: true
+tcp-concurrent: true
 proxies:
-- cipher: aes-256-gcm
-  name: 'ITA #4'
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 202.50.253.45
-  type: ss
+- name: US-216.106.186.33-02 649M 48ms
+  type: trojan
+  server: resources.findlocaljobnetworkandbuildcommunityconnections.com
+  port: 443
+  password: f0eb8c92ce8946aaba856569cff1a16b
   udp: true
-- cipher: aes-256-gcm
-  name: 'ITA #10'
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 202.50.253.27
+  skip-cert-verify: true
+  sni: resources.findlocaljobnetworkandbuildcommunityconnections.com
+- name: US-137.184.89.151-01 454M 76ms
   type: ss
+  server: 137.184.89.151
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-95.215.201.18-009 413M 144ms
+  type: ss
+  server: 95.215.201.18
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-167.88.61.52-0096 407M 168ms
+  type: trojan
+  server: 167.88.61.52
+  port: 443
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  udp: true
+  skip-cert-verify: true
+  sni: courses.browseseniorrolesandenhanceyourcareertoday.com
+- name: US-169.197.142.68-01 308M 117ms
+  type: ss
+  server: 169.197.142.68
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-23.150.152.38-015 305M 88ms
+  type: ss
+  server: 23.150.152.38
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-173.244.56.6-0142 264M 136ms
+  type: ss
+  server: 173.244.56.6
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: US-173.244.56.9-0144 248M 135ms
+  type: ss
+  server: 173.244.56.9
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: US-167.88.62.203-011 241M 176ms
+  type: ss
+  server: 167.88.62.203
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-149.40.57.134-013 207M 207ms
+  type: ss
+  server: 149.40.57.134
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-172.111.38.72-016 205M 234ms
+  type: ss
+  server: 172.111.38.72
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-156.146.38.168-00 204M 174ms
+  type: ss
+  server: 156.146.38.168
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: US-156.146.38.169-00 201M 173ms
+  type: ss
+  server: 156.146.38.169
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: US-156.146.38.170-00 12M 176ms
+  type: ss
+  server: 156.146.38.170
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: US-198.98.53.130-016 0M 233ms
+  type: ss
+  server: 198.98.53.130
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: eDfN7SODQceIOmIAbtJJtK
   udp: true
 - type: wireguard
   server: 162.159.192.9
@@ -33,16 +129,58 @@ proxies:
   udp: true
   name: WARP-CF
 proxy-groups:
-- name: PROXY
+- name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
-  interval: 300
+  interval: 180
   tolerance: 50
   lazy: false
   proxies:
-  - 'ITA #4'
-  - 'ITA #10'
+  - US-216.106.186.33-02 649M 48ms
+  - US-137.184.89.151-01 454M 76ms
+  - US-95.215.201.18-009 413M 144ms
+  - US-167.88.61.52-0096 407M 168ms
+  - US-169.197.142.68-01 308M 117ms
+  - US-23.150.152.38-015 305M 88ms
+  - US-173.244.56.6-0142 264M 136ms
+  - US-173.244.56.9-0144 248M 135ms
+  - US-167.88.62.203-011 241M 176ms
+  - US-149.40.57.134-013 207M 207ms
+  - US-172.111.38.72-016 205M 234ms
+  - US-156.146.38.168-00 204M 174ms
+  - US-156.146.38.169-00 201M 173ms
+  - US-156.146.38.170-00 12M 176ms
+  - US-198.98.53.130-016 0M 233ms
   - WARP-CF
+- name: NODE
+  type: select
+  proxies:
+  - AUTO
+  - US-216.106.186.33-02 649M 48ms
+  - US-137.184.89.151-01 454M 76ms
+  - US-95.215.201.18-009 413M 144ms
+  - US-167.88.61.52-0096 407M 168ms
+  - US-169.197.142.68-01 308M 117ms
+  - US-23.150.152.38-015 305M 88ms
+  - US-173.244.56.6-0142 264M 136ms
+  - US-173.244.56.9-0144 248M 135ms
+  - US-167.88.62.203-011 241M 176ms
+  - US-149.40.57.134-013 207M 207ms
+  - US-172.111.38.72-016 205M 234ms
+  - US-156.146.38.168-00 204M 174ms
+  - US-156.146.38.169-00 201M 173ms
+  - US-156.146.38.170-00 12M 176ms
+  - US-198.98.53.130-016 0M 233ms
+  - WARP-CF
+  - DIRECT
 rules:
+- DOMAIN-SUFFIX,youtube.com,AUTO
+- DOMAIN-SUFFIX,googlevideo.com,AUTO
+- DOMAIN-KEYWORD,googlevideo,AUTO
+- DOMAIN-SUFFIX,google.com,AUTO
+- DOMAIN-SUFFIX,netflix.com,AUTO
+- DOMAIN-SUFFIX,telegram.org,AUTO
+- IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
 - GEOIP,CN,DIRECT
-- MATCH,PROXY
+- MATCH,AUTO
