@@ -201,15 +201,32 @@ def collect():
             if l.strip() and not l.strip().startswith("#")]
     log(f"订阅源数量: {len(urls)}")
 
+    # ---- 并发拉取（45 个源串行要 19 分钟，并发 30 秒搞定）----
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    import threading
+
+    results = {}
+    def fetch_one(idx_url):
+        idx, url = idx_url
+        try:
+            return idx, url, load_source(url, timeout=12), None
+        except Exception as e:
+            return idx, url, None, type(e).__name__
+
+    with ThreadPoolExecutor(max_workers=20) as ex:
+        futs = [ex.submit(fetch_one, (i, u)) for i, u in enumerate(urls)]
+        for f in as_completed(futs):
+            idx, url, got, err = f.result()
+            results[idx] = (url, got, err)
+
     nodes, seen = [], set()
     stat = []
-    for i, url in enumerate(urls, 1):
+    for i in sorted(results):
+        url, got, err = results[i]
         name = urllib.parse.urlparse(url).netloc + urllib.parse.urlparse(url).path[-28:]
-        try:
-            got = load_source(url)
-        except Exception as e:
-            stat.append((name, 0, f"{type(e).__name__}"))
-            log(f"  [{i}/{len(urls)}] {name[:46]:48s} 失败 {type(e).__name__}")
+        if err or got is None:
+            stat.append((name, 0, err or "err"))
+            log(f"  [{i+1}/{len(urls)}] {name[:44]:46s} 失败 {err}")
             continue
         added = 0
         for px in got:
@@ -314,7 +331,7 @@ def _wait_api(sec=30):
     return False
 
 
-def probe(max_nodes=2000, max_test_bandwidth=25):
+def probe(max_nodes=6000, max_test_bandwidth=60):
     nodes = json.load(io.open(POOL_JSON, encoding="utf-8"))
     if len(nodes) > max_nodes:
         log(f"节点过多（{len(nodes)}），截取前 {max_nodes} 个测速")
@@ -363,7 +380,7 @@ def probe(max_nodes=2000, max_test_bandwidth=25):
                 except queue.Empty:
                     return
                 path = (f"/proxies/{urllib.parse.quote(n)}/delay"
-                        f"?timeout=2500&url={urllib.parse.quote(TEST_URL)}")
+                        f"?timeout=3000&url={urllib.parse.quote(TEST_URL)}")
                 try:
                     r = _api(path, timeout=8)
                     dl = r.get("delay", 0)
@@ -421,7 +438,7 @@ def probe(max_nodes=2000, max_test_bandwidth=25):
                 bps = measure()
             except Exception:
                 bps = 0
-            if bps > 30000:  # >30KB/s 才算真能用
+            if bps > 8000:  # >8KB/s 就算能用（放宽）
                 px = dict(byname[name])
                 px["_delay"] = dl
                 px["_bps"] = int(bps)
@@ -453,6 +470,46 @@ def _ascii_name(s):
     return s or "node"
 
 
+# ---- 地区权重：从中国大陆访问，亚洲节点质量远高于欧美 ----
+REGION_WEIGHT = {
+    # 亚洲（低延迟、回程好）
+    "JP": 1.00, "HK": 1.00, "SG": 0.95, "TW": 0.95, "KR": 0.95,
+    "MY": 0.75, "TH": 0.70, "VN": 0.70, "PH": 0.65, "IN": 0.55,
+    # 北美（绕地球半圈，晚高峰拥堵）
+    "US": 0.45, "CA": 0.45,
+    # 欧洲（更远）
+    "DE": 0.35, "NL": 0.40, "FR": 0.35, "GB": 0.35, "IT": 0.30,
+    "PL": 0.30, "RO": 0.30, "ES": 0.30, "SE": 0.30, "FI": 0.30,
+    "CH": 0.30, "AT": 0.30, "RU": 0.30,
+    # 其他
+    "AU": 0.40, "BR": 0.20, "AR": 0.20, "ZA": 0.20,
+}
+
+def region_of(node):
+    """从节点名里猜地区代码"""
+    name = (node.get("name") or "") + " " + str(node.get("server") or "")
+    up = name.upper()
+    for code in ("HK", "JP", "SG", "TW", "KR", "US", "CA", "DE", "NL",
+                 "FR", "GB", "IT", "PL", "RO", "ES", "SE", "FI", "CH",
+                 "RU", "AU", "MY", "TH", "VN", "PH", "IN", "BR", "AR", "ZA"):
+        if code in up:
+            return code
+    # 常见国家英文名
+    for code, kw in [("JP","JAPAN"),("HK","HONG"),("SG","SINGAPORE"),("TW","TAIWAN"),
+                     ("KR","KOREA"),("US","UNITED STATE"),("DE","GERMANY"),
+                     ("NL","NETHERLAND"),("FR","FRANCE"),("GB","BRITAIN")]:
+        if kw in up:
+            return code
+    return "??"
+
+def score(node):
+    """综合评分：带宽为主，地区权重放大，延迟惩罚"""
+    bps = node.get("_bps", 0) / 1048576.0          # MB/s
+    delay = node.get("_delay", 999)
+    w = REGION_WEIGHT.get(region_of(node), 0.40)
+    return bps * w / (1 + delay / 300.0)
+
+
 def build(max_nodes=40):
     alive = json.load(io.open(ALIVE_JSON, encoding="utf-8")) if os.path.exists(ALIVE_JSON) else []
     if not alive:
@@ -477,7 +534,8 @@ def build(max_nodes=40):
     if alive:
         for px in alive[:max_nodes]:
             mbps = int(px["_bps"] * 8 / 1048576)
-            add(px, f'{px["name"][:22]} {mbps}M {px["_delay"]}ms')
+            reg = px.get("_region", "??")
+            add(px, f'{reg}-{px["name"][:18]} {mbps}M {px["_delay"]}ms')
     else:
         fb = os.path.join(HERE, "assets", "fallback.yaml")
         if os.path.exists(fb):
