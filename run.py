@@ -509,37 +509,24 @@ def build(max_nodes=40):
             add(h, h.get("name") or "SelfHost-Hy2")
             hy2_names = names[before:]
 
-    # ---- 极简结构：只有 2 个策略组，全 ASCII 名 ----
-    auto_list = hy2_names + names          # 自建优先
-    node_list = ["AUTO"] + hy2_names + names + ["DIRECT"]
+    # ---- 终极极简：只有 1 个策略组，全 ASCII 名 ----
+    pool = list(dict.fromkeys(hy2_names + names))
 
     cfg = {
         "mixed-port": 7890,
         "allow-lan": False,
         "mode": "rule",
         "log-level": "warning",
-        "unified-delay": True,
-        "tcp-concurrent": True,
         "proxies": proxies,
         "proxy-groups": [
-            {"name": "AUTO", "type": "url-test",
+            {"name": "PROXY", "type": "url-test",
              "url": "https://www.gstatic.com/generate_204",
              "interval": 180, "tolerance": 50, "lazy": False,
-             "proxies": list(dict.fromkeys(auto_list))},
-            {"name": "NODE", "type": "select",
-             "proxies": list(dict.fromkeys(node_list))},
+             "proxies": pool},
         ],
         "rules": [
-            "DOMAIN-SUFFIX,youtube.com,AUTO",
-            "DOMAIN-SUFFIX,googlevideo.com,AUTO",
-            "DOMAIN-KEYWORD,googlevideo,AUTO",
-            "DOMAIN-SUFFIX,google.com,AUTO",
-            "DOMAIN-SUFFIX,netflix.com,AUTO",
-            "DOMAIN-SUFFIX,telegram.org,AUTO",
-            "IP-CIDR,127.0.0.0/8,DIRECT,no-resolve",
-            "IP-CIDR,192.168.0.0/16,DIRECT,no-resolve",
             "GEOIP,CN,DIRECT",
-            "MATCH,AUTO",
+            "MATCH,PROXY",
         ],
     }
 
@@ -557,7 +544,7 @@ def build(max_nodes=40):
     io.open(os.path.join(DIST_DIR, "sub.txt"), "w", encoding="ascii").write(b64)
 
     log(f"已生成 {out}")
-    log(f"  节点 {len(proxies)} 个，策略组 2 个（AUTO / NODE）")
+    log(f"  节点 {len(proxies)} 个，策略组 1 个（PROXY）")
     return out
 
 
