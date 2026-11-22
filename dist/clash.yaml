@@ -1,0 +1,71 @@
+# auto-generated (github split-route edition)
+# github.com -> NODE(WARP) / githubassets+raw -> DIRECT
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+unified-delay: true
+tcp-concurrent: true
+proxies:
+- cipher: aes-256-gcm
+  name: 'ITA #4'
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  port: 19999
+  server: 202.50.253.45
+  type: ss
+  udp: true
+- cipher: aes-256-gcm
+  name: 'ITA #10'
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  port: 19999
+  server: 202.50.253.27
+  type: ss
+  udp: true
+- type: wireguard
+  server: 162.159.192.9
+  port: 2408
+  ip: 172.16.0.2
+  private-key: MDu1BL3B2IqNF+GliBdV28jBqHS3S8ZgmC/eIkAKMJM=
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  reserved:
+  - 242
+  - 213
+  - 200
+  mtu: 1280
+  udp: true
+  name: WARP-CF
+proxy-groups:
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 180
+  tolerance: 50
+  lazy: false
+  proxies:
+  - 'ITA #4'
+  - 'ITA #10'
+  - WARP-CF
+- name: NODE
+  type: select
+  proxies:
+  - WARP-CF
+  - AUTO
+  - 'ITA #4'
+  - 'ITA #10'
+  - DIRECT
+rules:
+- DOMAIN-SUFFIX,github.com,NODE
+- DOMAIN-SUFFIX,github.dev,NODE
+- DOMAIN-SUFFIX,githubassets.com,DIRECT
+- DOMAIN-SUFFIX,githubusercontent.com,DIRECT
+- DOMAIN-SUFFIX,github.io,DIRECT
+- DOMAIN-SUFFIX,youtube.com,AUTO
+- DOMAIN-SUFFIX,googlevideo.com,AUTO
+- DOMAIN-KEYWORD,googlevideo,AUTO
+- DOMAIN-SUFFIX,google.com,AUTO
+- DOMAIN-SUFFIX,netflix.com,AUTO
+- DOMAIN-SUFFIX,telegram.org,AUTO
+- IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+- GEOIP,CN,DIRECT
+- MATCH,AUTO
