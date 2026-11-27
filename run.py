@@ -447,9 +447,44 @@ def probe(max_nodes=6000, max_test_bandwidth=60):
             else:
                 log(f"  ❌ {bps*8/1048576:6.2f} Mbps  {dl:>4d}ms  {name[:44]}")
 
-        alive.sort(key=lambda x: -x["_bps"])
+        # ---- 用 IP 地理位置纠正地区（节点名不可靠）----
+        if alive:
+            log("\n查询节点 IP 归属地...")
+            geo = geo_lookup([n.get("server") for n in alive])
+            fixed = 0
+            for n in alive:
+                cc = geo.get(n.get("server"))
+                guess = region_of(n)
+                if cc and cc != "??":
+                    n["_region"] = cc
+                    if guess != cc:
+                        fixed += 1
+                else:
+                    n["_region"] = guess
+            log(f"  地理修正 {fixed}/{len(alive)} 个")
+            dist = collections.Counter(n["_region"] for n in alive)
+            log(f"  真实地区分布: {dict(dist.most_common())}")
+
+            # 亚洲节点优先（从国内访问回程线路好 5-10 倍）
+            asia = [n for n in alive if n["_region"] in ASIA_CODES]
+            log(f"  亚洲节点: {len(asia)} 个")
+            if asia:
+                log("  亚洲节点明细:")
+                for n in sorted(asia, key=lambda x: -x["_bps"])[:8]:
+                    log(f"    {n['_region']} {n['_bps']*8/1048576:6.1f}M "
+                        f"{n['_delay']:>4d}ms  {n['name'][:36]}")
+
+        # 综合评分排序：带宽 × 地区权重 ÷ 延迟惩罚
+        for n in alive:
+            n["_score"] = round(score(n), 4)
+        alive.sort(key=lambda x: -x["_score"])
+
         json.dump(alive, io.open(ALIVE_JSON, "w", encoding="utf-8"), ensure_ascii=False)
         log(f"\n可上机节点：{len(alive)} / {len(nodes)}")
+        log("按综合评分排序（亚洲优先）:")
+        for n in alive[:10]:
+            log(f"  {n['_score']:7.3f}  {n['_region']:3s}  "
+                f"{n['_bps']*8/1048576:6.1f}M  {n['_delay']:>4d}ms  {n['name'][:32]}")
         return alive
     finally:
         proc.terminate()
@@ -484,6 +519,33 @@ REGION_WEIGHT = {
     # 其他
     "AU": 0.40, "BR": 0.20, "AR": 0.20, "ZA": 0.20,
 }
+
+# ---- IP 地理位置查询（不依赖节点名，准确率 95%+）----
+ASIA_CODES = {"JP", "HK", "SG", "TW", "KR", "MO", "MY", "TH", "VN", "PH", "ID", "IN"}
+
+def geo_lookup(servers, batch=90):
+    """用 ip-api.com 批量查 IP 国家（免费版 45 次/分钟，batch 算 1 次）"""
+    result = {}
+    uniq = list(dict.fromkeys([s for s in servers if s]))
+    for i in range(0, len(uniq), batch):
+        chunk = uniq[i:i + batch]
+        try:
+            req = urllib.request.Request(
+                "http://ip-api.com/batch?fields=query,countryCode",
+                data=json.dumps([{"query": ip} for ip in chunk]).encode(),
+                headers={"Content-Type": "application/json"})
+            op = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+            resp = json.loads(op.open(req, timeout=25).read().decode())
+            for item in resp:
+                q = item.get("query")
+                cc = item.get("countryCode") or "??"
+                if q:
+                    result[q] = cc
+            log(f"  地理位置查询 {i+len(chunk)}/{len(uniq)} 完成")
+        except Exception as e:
+            log(f"  地理查询批次失败: {type(e).__name__}")
+        time.sleep(1.2)   # 限速
+    return result
 
 def region_of(node):
     """从节点名里猜地区代码"""
