@@ -1,167 +1,83 @@
-# auto-generated 2026-11-25 12:59 UTC
-# available 48 nodes after cleaning
+# auto-generated 2026-11-27 11:20 UTC
+# available 27 nodes after cleaning
 # groups: AUTO (url-test) / NODE (select)
 mixed-port: 7890
 allow-lan: false
 mode: rule
 log-level: warning
 proxies:
-- name: ??-US-45.86.51.18-0 755M 99ms
-  type: ss
-  server: 45.86.51.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: ??-US-193.151.163.1 650M 70ms
-  type: ss
-  server: 193.151.163.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: ??-US-185.230.230.1 599M 112ms
-  type: ss
-  server: 185.230.230.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: ??- 041 579M 31ms
-  type: ss
-  server: 67.220.73.178
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: ??-US-37.19.198.243 569M 72ms
-  type: ss
-  server: 37.19.198.243
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: ??- 142 558M 30ms
-  type: vmess
-  server: 38.128.66.212
-  port: 1270
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: xmfhlpy.com
-- name: ??-US-216.106.178.1 545M 98ms
-  type: ss
-  server: 216.106.178.169
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: ??- 17 505M 78ms
-  type: ss
-  server: 138.197.141.58
-  port: 8080
-  cipher: rc4-md5
-  password: 14fFPrbezE3HDZzsMOr6
-  udp: true
-- name: ??-US-156.146.38.17 504M 76ms
-  type: ss
-  server: 156.146.38.170
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: ??- 068 490M 43ms
-  type: vmess
-  server: 162.251.60.97
-  port: 1270
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: xmfhlpy.com
-- name: ??-US-37.19.198.236 456M 81ms
-  type: ss
-  server: 37.19.198.236
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: ??-US-156.146.38.16 451M 74ms
-  type: ss
-  server: 156.146.38.169
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: ??- 064 446M 49ms
+- name: US- 158 891M 72ms
   type: trojan
-  server: 216.152.155.54
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  server: 69.164.240.85
+  port: 50875
+  password: nwilryafgkyvuxauc8pz
   udp: true
-  sni: learn.nextjobopportunityandclaimyouridealrole.com
-- name: ??- 161 433M 173ms
-  type: ss
-  server: 185.215.132.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: ??- 053 417M 174ms
-  type: ss
-  server: 185.215.132.9
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- auth: d0975db4-e8c8-41f7-a5f3-a3d1d432e499
-  name: '??- | NLD #2 399M 164ms'
-  password: d0975db4-e8c8-41f7-a5f3-a3d1d432e499
-  port: 443
-  server: 193.233.130.66
+  sni: 69.164.240.85
   skip-cert-verify: true
-  sni: app.vles.space
-  tls: false
-  type: hysteria2
-- name: ??- 098 389M 93ms
-  type: ss
-  server: 98.98.79.198
-  port: 8080
-  cipher: rc4-md5
-  password: 14fFPrbezE3HDZzsMOr6
-  udp: true
-- name: ??- 097 389M 36ms
-  type: ss
-  server: 138.199.42.68
-  port: 8080
-  cipher: rc4-md5
-  password: 14fFPrbezE3HDZzsMOr6
-  udp: true
-- name: ??-US-149.40.57.134 378M 61ms
+- name: US-US-149.40.57.134 454M 48ms
   type: ss
   server: 149.40.57.134
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: ??- 022 374M 64ms
-  type: ss
-  server: 149.40.57.135
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: ??-US-149.40.57.138 365M 61ms
+- name: US-US-149.40.57.138 468M 60ms
   type: ss
   server: 149.40.57.138
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: ??- 115 359M 141ms
+- name: US- 083 494M 59ms
+  type: ss
+  server: 98.98.79.198
+  port: 8080
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+  udp: true
+- name: US-US-216.106.178.1 366M 95ms
+  type: ss
+  server: 216.106.178.169
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-38.91.100.39- 317M 47ms
+  type: ss
+  server: 38.91.100.39
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: CA-CA-137.184.174.9 359M 117ms
+  type: ss
+  server: 137.184.174.93
+  port: 8080
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+  udp: true
+- name: US- 178 406M 120ms
+  type: ss
+  server: 138.199.42.68
+  port: 8080
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+  udp: true
+- name: US- 029 367M 83ms
+  type: ss
+  server: 67.220.73.178
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-167.88.63.99- 345M 168ms
+  type: ss
+  server: 167.88.63.99
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US- 128 335M 105ms
   type: vmess
   server: 172.111.38.246
   port: 1270
@@ -171,123 +87,87 @@ proxies:
   udp: true
   tls: true
   servername: xmfhlpy.com
-  client-fingerprint: chrome
-- name: ??- 105 341M 96ms
+- name: US-US-66.23.203.21- 329M 154ms
   type: trojan
-  server: 69.164.240.85
-  port: 50875
-  password: nwilryafgkyvuxauc8pz
+  server: 66.23.203.21
+  port: 59689
+  password: ae7eb4dwyaz25pxwgq59
   udp: true
-  sni: 69.164.240.85
   skip-cert-verify: true
-- name: ??-US-172.111.38.72 332M 100ms
+  sni: 66.23.203.21
+- name: US- 027 239M 60ms
   type: ss
-  server: 172.111.38.72
+  server: 149.40.57.135
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: ??- 109 317M 145ms
+- name: US- 261 201M 50ms
   type: vmess
-  server: 38.107.226.5
-  port: 1270
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  network: tcp
+  server: 67.220.85.46
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  udp: true
   alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: xmfhlpy.com
-- name: ??- 156 310M 103ms
-  type: vmess
-  server: 38.91.100.16
-  port: 1270
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: xmfhlpy.com
-- name: ??- 065 306M 41ms
-  type: vmess
-  server: 38.128.66.241
-  port: 1270
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: xmfhlpy.com
-- name: ??-US-38.91.100.39- 288M 74ms
-  type: ss
-  server: 38.91.100.39
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: ??-US-95.215.201.18 257M 177ms
-  type: ss
-  server: 95.215.201.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: ??- 029 246M 148ms
-  type: ss
-  server: 79.110.54.250
-  port: 8080
-  cipher: rc4-md5
-  password: 14fFPrbezE3HDZzsMOr6
-  udp: true
-- name: ??- 020 242M 156ms
-  type: ss
-  server: 38.143.66.146
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: ??-CA-149.22.95.183 238M 171ms
-  type: ss
-  server: 149.22.95.183
-  port: 443
   cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: ??-US-37.19.198.160 238M 77ms
-  type: ss
-  server: 37.19.198.160
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: ??-US-173.244.56.6- 227M 173ms
-  type: ss
-  server: 173.244.56.6
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: ??-US-173.244.56.9- 222M 172ms
-  type: ss
-  server: 173.244.56.9
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: ??-US-149.40.57.133 219M 63ms
+- name: US-US-149.40.57.133 148M 58ms
   type: ss
   server: 149.40.57.133
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: ??-US-23.150.152.38 194M 155ms
+- name: US- 037 209M 172ms
   type: ss
-  server: 23.150.152.38
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  server: 79.110.54.250
+  port: 8080
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
   udp: true
-- name: ??- 270 184M 68ms
+- name: US-US-15.204.233.41 74M 36ms
+  type: ss
+  server: 15.204.233.41
+  port: 8882
+  cipher: aes-256-gcm
+  password: kDWvXYZoTBcGkC4
+  udp: true
+- name: US-US-15.204.246.13 74M 47ms
+  type: ss
+  server: 15.204.246.132
+  port: 7307
+  cipher: aes-256-gcm
+  password: FoOiGlkAA9yPEGP
+  udp: true
+- name: US-US-15.204.246.10 70M 39ms
+  type: ss
+  server: 15.204.246.108
+  port: 8881
+  cipher: aes-256-gcm
+  password: kDWvXYZoTBcGkC4
+  udp: true
+- name: US- 045 76M 43ms
+  type: ss
+  server: 15.204.246.107
+  port: 8888
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
+  udp: true
+- name: US- 072 75M 41ms
+  type: ss
+  server: 15.204.246.111
+  port: 5498
+  cipher: aes-256-gcm
+  password: lGqs95QkFHo2NV
+  udp: true
+- name: CA-CA-51.222.141.12 68M 87ms
+  type: ss
+  server: 51.222.141.125
+  port: 445
+  cipher: aes-256-gcm
+  password: zDNVedRFPQexG9v
+  udp: true
+- name: CA- 270 61M 102ms
   type: vmess
   network: tcp
   server: 134.195.196.211
@@ -296,22 +176,40 @@ proxies:
   udp: true
   alterId: 0
   cipher: auto
-- cipher: aes-256-gcm
-  name: ??-[www.v2nodes.com 79M 72ms
-  password: kDWvXYZoTBcGkC4
-  port: 8881
-  server: 15.204.246.108
+- name: US-US-172.111.38.72 47M 66ms
   type: ss
-- cipher: aes-256-gcm
-  name: ??-[www.v2nodes.com] 78M 80ms
-  password: kDWvXYZoTBcGkC4
+  server: 172.111.38.72
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: CA-CA-51.222.12.127 46M 86ms
+  type: ss
+  server: 51.222.12.127
+  port: 445
+  cipher: aes-256-gcm
+  password: zDNVedRFPQexG9v
+  udp: true
+- name: CA-CA-51.222.136.23 12M 86ms
+  type: ss
+  server: 51.222.136.236
   port: 8882
-  server: 15.204.233.41
+  cipher: aes-256-gcm
+  password: kDWvXYZoTBcGkC4
+  udp: true
+- name: US-US-198.98.53.130 1M 53ms
   type: ss
-- type: wireguard
+  server: 198.98.53.130
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: eDfN7SODQceIOmIAbtJJtK
+  udp: true
+- name: WARP-CF
+  type: wireguard
   server: 162.159.192.9
   port: 2408
   ip: 172.16.0.2
+  ipv6: fd01:5ca1:ab1e:8a4d:71bf:6af7:f35c:9c2b
   private-key: MDu1BL3B2IqNF+GliBdV28jBqHS3S8ZgmC/eIkAKMJM=
   public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
   reserved:
@@ -320,7 +218,10 @@ proxies:
   - 200
   mtu: 1280
   udp: true
-  name: WARP-CF
+  remote-dns-resolve: true
+  dns:
+  - 1.1.1.1
+  - 1.0.0.1
 proxy-groups:
 - name: PROXY
   type: url-test
@@ -329,46 +230,33 @@ proxy-groups:
   tolerance: 50
   lazy: false
   proxies:
-  - ??-US-45.86.51.18-0 755M 99ms
-  - ??-US-193.151.163.1 650M 70ms
-  - ??-US-185.230.230.1 599M 112ms
-  - ??- 041 579M 31ms
-  - ??-US-37.19.198.243 569M 72ms
-  - ??- 142 558M 30ms
-  - ??-US-216.106.178.1 545M 98ms
-  - ??- 17 505M 78ms
-  - ??-US-156.146.38.17 504M 76ms
-  - ??- 068 490M 43ms
-  - ??-US-37.19.198.236 456M 81ms
-  - ??-US-156.146.38.16 451M 74ms
-  - ??- 064 446M 49ms
-  - ??- 161 433M 173ms
-  - ??- 053 417M 174ms
-  - '??- | NLD #2 399M 164ms'
-  - ??- 098 389M 93ms
-  - ??- 097 389M 36ms
-  - ??-US-149.40.57.134 378M 61ms
-  - ??- 022 374M 64ms
-  - ??-US-149.40.57.138 365M 61ms
-  - ??- 115 359M 141ms
-  - ??- 105 341M 96ms
-  - ??-US-172.111.38.72 332M 100ms
-  - ??- 109 317M 145ms
-  - ??- 156 310M 103ms
-  - ??- 065 306M 41ms
-  - ??-US-38.91.100.39- 288M 74ms
-  - ??-US-95.215.201.18 257M 177ms
-  - ??- 029 246M 148ms
-  - ??- 020 242M 156ms
-  - ??-CA-149.22.95.183 238M 171ms
-  - ??-US-37.19.198.160 238M 77ms
-  - ??-US-173.244.56.6- 227M 173ms
-  - ??-US-173.244.56.9- 222M 172ms
-  - ??-US-149.40.57.133 219M 63ms
-  - ??-US-23.150.152.38 194M 155ms
-  - ??- 270 184M 68ms
-  - ??-[www.v2nodes.com 79M 72ms
-  - ??-[www.v2nodes.com] 78M 80ms
+  - US- 158 891M 72ms
+  - US-US-149.40.57.134 454M 48ms
+  - US-US-149.40.57.138 468M 60ms
+  - US- 083 494M 59ms
+  - US-US-216.106.178.1 366M 95ms
+  - US-US-38.91.100.39- 317M 47ms
+  - CA-CA-137.184.174.9 359M 117ms
+  - US- 178 406M 120ms
+  - US- 029 367M 83ms
+  - US-US-167.88.63.99- 345M 168ms
+  - US- 128 335M 105ms
+  - US-US-66.23.203.21- 329M 154ms
+  - US- 027 239M 60ms
+  - US- 261 201M 50ms
+  - US-US-149.40.57.133 148M 58ms
+  - US- 037 209M 172ms
+  - US-US-15.204.233.41 74M 36ms
+  - US-US-15.204.246.13 74M 47ms
+  - US-US-15.204.246.10 70M 39ms
+  - US- 045 76M 43ms
+  - US- 072 75M 41ms
+  - CA-CA-51.222.141.12 68M 87ms
+  - CA- 270 61M 102ms
+  - US-US-172.111.38.72 47M 66ms
+  - CA-CA-51.222.12.127 46M 86ms
+  - CA-CA-51.222.136.23 12M 86ms
+  - US-US-198.98.53.130 1M 53ms
   - WARP-CF
 rules:
 - GEOIP,CN,DIRECT
