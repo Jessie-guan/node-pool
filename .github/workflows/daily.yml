@@ -59,6 +59,13 @@ jobs:
           if git diff --staged --quiet; then
             echo "无变化，跳过提交"
           else
-            git commit -m "chore: 节点池每日清洗 $(date -u +'%Y-%m-%d %H:%M UTC')"
-            git push
+            git commit -m "chore: 节点池每日清洗 $(date -u +'%Y-%m-%d %H:%M UTC') [skip ci]"
+            # 远程可能有人工提交，先 rebase 再推，避免 non-fast-forward
+            git pull --rebase --autostash origin main || true
+            git push origin HEAD:main || {
+              echo "首次 push 失败，重试一次"
+              sleep 3
+              git pull --rebase --autostash origin main || true
+              git push origin HEAD:main
+            }
           fi
