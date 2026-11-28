@@ -259,6 +259,15 @@ def collect():
         if counter[px["name"]] > 1:
             px["name"] = f'{px["name"]}#{counter[px["name"]]}'
 
+    # 记录每个源的产出（给 prune.py 判断健康度）
+    src_result = {}
+    for i in sorted(results):
+        url, got, err = results[i]
+        src_result[url] = {"count": (len(got) if got else 0), "error": err}
+    json.dump(src_result,
+              io.open(os.path.join(HERE, "collect_result.json"), "w", encoding="utf-8"),
+              ensure_ascii=False)
+
     json.dump(nodes, io.open(POOL_JSON, "w", encoding="utf-8"), ensure_ascii=False)
     log(f"\n采集完成：{len(nodes)} 个节点 -> pool.json")
     log("协议分布: " + str(dict(collections.Counter(n["type"] for n in nodes))))
