@@ -1,10 +1,10 @@
-﻿name: daily-node-refresh
+name: daily-node-refresh
 
-# 每小时整点自动清洗节点池（UTC 0 分）
+# 每小时整点清洗节点池；每天 0 点额外跑一次「发现新源」
 on:
   schedule:
     - cron: "0 * * * *"
-  workflow_dispatch: {}      # 也可以手动点一下立即跑
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -12,7 +12,7 @@ permissions:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     steps:
       - name: 拉取仓库
@@ -26,8 +26,19 @@ jobs:
       - name: 安装依赖
         run: pip install pyyaml
 
+      - name: 发现新源（每天 0 点 / 手动触发）
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 0 * * *'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "=== 全网搜索新源 ==="
+          python discover.py --limit 20 || echo "发现失败，继续用现有源"
+
       - name: 采集节点（全网订阅源）
         run: python run.py collect
+
+      - name: 源健康检查（自动淘汰连续零产出的源）
+        run: python prune.py check || echo "prune 失败，跳过"
 
       - name: 测速清洗（mihomo 内核）
         run: python run.py probe
@@ -35,32 +46,53 @@ jobs:
       - name: 生成极简配置
         run: python run.py build
 
+      - name: 源健康报告
+        run: python prune.py report || true
+
       - name: 统计
         run: |
           echo "### 本次结果" >> $GITHUB_STEP_SUMMARY
           python - <<'PY' >> $GITHUB_STEP_SUMMARY
           import json, os
-          pool = json.load(open("pool.json", encoding="utf-8")) if os.path.exists("pool.json") else []
-          alive = json.load(open("alive.json", encoding="utf-8")) if os.path.exists("alive.json") else []
-          print(f"- 采集节点：**{len(pool)}**")
-          print(f"- 清洗后可用：**{len(alive)}**")
+          def load(p):
+              if not os.path.exists(p): return []
+              try:
+                  return json.load(open(p, encoding="utf-8-sig"))
+              except Exception:
+                  return []
+          pool = load("pool.json")
+          alive = load("alive.json")
+          active = [l.strip() for l in open("sources.txt", encoding="utf-8")
+                    if l.strip() and not l.strip().startswith("#")] if os.path.exists("sources.txt") else []
+          retired = 0
+          if os.path.exists("retired.txt"):
+              retired = len([l for l in open("retired.txt", encoding="utf-8")
+                             if l.strip() and not l.strip().startswith("#")])
+          print("| 指标 | 数值 |")
+          print("|---|---|")
+          print(f"| 活跃源 | **{len(active)}** |")
+          print(f"| 已淘汰源 | {retired} |")
+          print(f"| 采集节点 | **{len(pool)}** |")
+          print(f"| 清洗后可用 | **{len(alive)}** |")
           print("")
-          print("| 带宽 | 延迟 | 节点 |")
-          print("|---|---|---|")
-          for n in alive[:15]:
-              print(f'| {n["_bps"]*8/1048576:.2f} Mbps | {n["_delay"]} ms | {n["name"][:36]} |')
+          if alive:
+              print("| 带宽 | 延迟 | 地区 | 节点 |")
+              print("|---|---|---|---|")
+              for n in alive[:15]:
+                  mbps = n.get("_bps",0)*8/1048576
+                  print(f'| {mbps:.1f} Mbps | {n.get("_delay",0)} ms | {n.get("_region","??")} | {n["name"][:32]} |')
           PY
 
       - name: 提交产物
         run: |
           git config user.name  "node-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add dist/clash.yaml dist/sub.txt alive.json pool.json || true
+          git add dist/clash.yaml dist/sub.txt alive.json pool.json \
+                  sources.txt retired.txt source_stats.json collect_result.json discovered.json 2>/dev/null || true
           if git diff --staged --quiet; then
             echo "无变化，跳过提交"
           else
             git commit -m "chore: 节点池小时刷新 $(date -u +'%Y-%m-%d %H:%M UTC') [skip ci]"
-            # 远程可能有人工提交，先 rebase 再推，避免 non-fast-forward
             git pull --rebase --autostash origin main || true
             git push origin HEAD:main || {
               echo "首次 push 失败，重试一次"
