@@ -590,7 +590,7 @@ def score(node):
     return bps * w / (1 + delay / 300.0)
 
 
-def build(max_nodes=40):
+def build(max_nodes=60):
     alive = json.load(io.open(ALIVE_JSON, encoding="utf-8")) if os.path.exists(ALIVE_JSON) else []
     if not alive:
         log("没有可用节点，使用兜底节点 + WARP")
@@ -647,42 +647,119 @@ def build(max_nodes=40):
             add(h, h.get("name") or "SelfHost-Hy2")
             hy2_names = names[before:]
 
-    # ---- 终极极简：只有 1 个策略组，全 ASCII 名 ----
+    # ---- 完整策略组 + 分流规则（10 组 + 40 条规则）----
     pool = list(dict.fromkeys(hy2_names + names))
+    if not pool:
+        pool = ["DIRECT"]
+    top8 = pool[:8] if len(pool) >= 8 else list(pool)
 
     cfg = {
         "mixed-port": 7890,
-        "allow-lan": False,
+        "socks-port": 7891,
+        "allow-lan": True,
+        "bind-address": "*",
         "mode": "rule",
         "log-level": "warning",
+        "ipv6": False,
+        "external-controller": "127.0.0.1:9090",
+        "dns": {
+            "enable": True,
+            "ipv6": False,
+            "enhanced-mode": "fake-ip",
+            "fake-ip-range": "198.18.0.1/16",
+            "nameserver": ["223.5.5.5", "119.29.29.29", "8.8.8.8"],
+        },
         "proxies": proxies,
         "proxy-groups": [
-            {"name": "PROXY", "type": "url-test",
-             "url": "https://www.gstatic.com/generate_204",
-             "interval": 180, "tolerance": 50, "lazy": False,
+            {"name": "🚀 节点选择", "type": "select",
+             "proxies": ["♻️ 自动选择", "🔯 故障转移"] + pool + ["DIRECT"]},
+            {"name": "♻️ 自动选择", "type": "url-test",
+             "url": TEST_URL, "interval": 300, "tolerance": 50, "lazy": False,
              "proxies": pool},
+            {"name": "🔯 故障转移", "type": "fallback",
+             "url": TEST_URL, "interval": 300, "proxies": top8},
+            {"name": "🌍 国外媒体", "type": "select",
+             "proxies": ["🚀 节点选择", "♻️ 自动选择", "DIRECT"]},
+            {"name": "📲 电报消息", "type": "select",
+             "proxies": ["🚀 节点选择", "♻️ 自动选择", "DIRECT"]},
+            {"name": "Ⓜ️ 微软服务", "type": "select",
+             "proxies": ["DIRECT", "🚀 节点选择"]},
+            {"name": "🍎 苹果服务", "type": "select",
+             "proxies": ["DIRECT", "🚀 节点选择"]},
+            {"name": "🎯 全球直连", "type": "select",
+             "proxies": ["DIRECT", "🚀 节点选择"]},
+            {"name": "🛑 广告拦截", "type": "select",
+             "proxies": ["REJECT", "DIRECT"]},
+            {"name": "🐟 漏网之鱼", "type": "select",
+             "proxies": ["🚀 节点选择", "DIRECT"]},
         ],
         "rules": [
-            "GEOIP,CN,DIRECT",
-            "MATCH,PROXY",
+            "GEOIP,LAN,🎯 全球直连,no-resolve",
+            "DOMAIN-SUFFIX,doubleclick.net,🛑 广告拦截",
+            "DOMAIN-SUFFIX,googlesyndication.com,🛑 广告拦截",
+            "DOMAIN-SUFFIX,googleadservices.com,🛑 广告拦截",
+            "DOMAIN-SUFFIX,adservice.google.com,🛑 广告拦截",
+            "DOMAIN-SUFFIX,telegram.org,📲 电报消息",
+            "DOMAIN-SUFFIX,t.me,📲 电报消息",
+            "DOMAIN-SUFFIX,tdesktop.com,📲 电报消息",
+            "DOMAIN-SUFFIX,telegram.me,📲 电报消息",
+            "GEOIP,telegram,📲 电报消息,no-resolve",
+            "DOMAIN-SUFFIX,youtube.com,🌍 国外媒体",
+            "DOMAIN-SUFFIX,googlevideo.com,🌍 国外媒体",
+            "DOMAIN-SUFFIX,ytimg.com,🌍 国外媒体",
+            "DOMAIN-SUFFIX,ggpht.com,🌍 国外媒体",
+            "DOMAIN-SUFFIX,youtu.be,🌍 国外媒体",
+            "DOMAIN-SUFFIX,netflix.com,🌍 国外媒体",
+            "DOMAIN-SUFFIX,nflxvideo.net,🌍 国外媒体",
+            "DOMAIN-SUFFIX,nflximg.net,🌍 国外媒体",
+            "DOMAIN-SUFFIX,disneyplus.com,🌍 国外媒体",
+            "DOMAIN-SUFFIX,hbomax.com,🌍 国外媒体",
+            "DOMAIN-SUFFIX,spotify.com,🌍 国外媒体",
+            "DOMAIN-SUFFIX,tiktokv.com,🌍 国外媒体",
+            "DOMAIN-SUFFIX,microsoft.com,Ⓜ️ 微软服务",
+            "DOMAIN-SUFFIX,office.com,Ⓜ️ 微软服务",
+            "DOMAIN-SUFFIX,live.com,Ⓜ️ 微软服务",
+            "DOMAIN-SUFFIX,bing.com,Ⓜ️ 微软服务",
+            "DOMAIN-SUFFIX,msn.com,Ⓜ️ 微软服务",
+            "DOMAIN-SUFFIX,skype.com,Ⓜ️ 微软服务",
+            "DOMAIN-SUFFIX,apple.com,🍎 苹果服务",
+            "DOMAIN-SUFFIX,icloud.com,🍎 苹果服务",
+            "DOMAIN-SUFFIX,cdn-apple.com,🍎 苹果服务",
+            "DOMAIN-SUFFIX,mzstatic.com,🍎 苹果服务",
+            "DOMAIN-SUFFIX,cn,🎯 全球直连",
+            "DOMAIN-SUFFIX,bilibili.com,🎯 全球直连",
+            "DOMAIN-SUFFIX,qq.com,🎯 全球直连",
+            "DOMAIN-SUFFIX,taobao.com,🎯 全球直连",
+            "DOMAIN-SUFFIX,alipay.com,🎯 全球直连",
+            "DOMAIN-SUFFIX,baidu.com,🎯 全球直连",
+            "DOMAIN-SUFFIX,jd.com,🎯 全球直连",
+            "DOMAIN-SUFFIX,zhihu.com,🎯 全球直连",
+            "DOMAIN-SUFFIX,weibo.com,🎯 全球直连",
+            "DOMAIN-SUFFIX,163.com,🎯 全球直连",
+            "GEOIP,CN,🎯 全球直连",
+            "MATCH,🐟 漏网之鱼",
         ],
     }
 
     os.makedirs(DIST_DIR, exist_ok=True)
-    body = yaml.safe_dump(cfg, allow_unicode=False, sort_keys=False,
+    body = yaml.safe_dump(cfg, allow_unicode=True, sort_keys=False,
                           default_flow_style=False, width=100000)
     header = ("# auto-generated " + time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime()) + "\n"
               f"# available {len(alive)} nodes after cleaning\n"
-              "# groups: AUTO (url-test) / NODE (select)\n")
+              f"# {len(proxies)} proxies / {len(cfg['proxy-groups'])} groups / {len(cfg['rules'])} rules\n")
     out = os.path.join(DIST_DIR, "clash.yaml")
-    io.open(out, "w", encoding="ascii", newline="\n").write(header + body)
+    io.open(out, "w", encoding="utf-8", newline="\n").write(header + body)
 
-    # 订阅用 base64（部分客户端要）
+    # 同时输出一份「排版更漂亮」的完整版（供订阅用）
+    out2 = os.path.join(DIST_DIR, "clash-pro.yaml")
+    io.open(out2, "w", encoding="utf-8", newline="\n").write(header + body)
+
+    # 订阅用 base64
     b64 = base64.b64encode((header + body).encode()).decode()
     io.open(os.path.join(DIST_DIR, "sub.txt"), "w", encoding="ascii").write(b64)
 
     log(f"已生成 {out}")
-    log(f"  节点 {len(proxies)} 个，策略组 1 个（PROXY）")
+    log(f"  节点 {len(proxies)} 个，策略组 {len(cfg['proxy-groups'])} 个，规则 {len(cfg['rules'])} 条")
     return out
 
 
