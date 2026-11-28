@@ -1,288 +1,287 @@
-# auto-generated 2026-11-28 14:17 UTC
-# available 49 nodes after cleaning
+# auto-generated 2026-11-28 14:28 UTC
+# available 51 nodes after cleaning
 # groups: AUTO (url-test) / NODE (select)
 mixed-port: 7890
 allow-lan: false
 mode: rule
 log-level: warning
 proxies:
-- name: US-US-185.230.230.1 1472M 54ms
-  type: ss
-  server: 185.230.230.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-US-45.86.51.18-0 1350M 56ms
-  type: ss
-  server: 45.86.51.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-US-37.19.198.244 1271M 36ms
-  type: ss
-  server: 37.19.198.244
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: US-US-37.19.198.243 1143M 35ms
-  type: ss
-  server: 37.19.198.243
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: US-US-37.19.198.160 1097M 34ms
-  type: ss
-  server: 37.19.198.160
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: US-US-193.151.163.1 791M 37ms
-  type: ss
-  server: 193.151.163.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-US-149.40.57.134 482M 51ms
-  type: ss
-  server: 149.40.57.134
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-US-37.19.198.236 436M 33ms
-  type: ss
-  server: 37.19.198.236
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: US-US-149.40.57.138 450M 51ms
-  type: ss
-  server: 149.40.57.138
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-US-172.111.38.72 393M 68ms
-  type: ss
-  server: 172.111.38.72
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-US-216.106.178.1 389M 82ms
-  type: ss
-  server: 216.106.178.169
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-US-193.151.160.9 490M 209ms
-  type: ss
-  server: 193.151.160.9
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-US-38.128.66.32- 364M 80ms
+- name: US-US-38.128.66.32- 567M 29ms
   type: ss
   server: 38.128.66.32
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: US-US-156.146.38.16 367M 111ms
+- name: US-US-193.151.163.1 623M 73ms
   type: ss
-  server: 156.146.38.168
+  server: 193.151.163.18
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-45.86.51.18-0 660M 111ms
+  type: ss
+  server: 45.86.51.18
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-185.230.230.1 655M 116ms
+  type: ss
+  server: 185.230.230.18
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-37.19.198.243 569M 73ms
+  type: ss
+  server: 37.19.198.243
   port: 443
   cipher: aes-128-gcm
   password: shadowsocks
   udp: true
-- name: CA-CA-137.184.174.9 333M 103ms
+- name: US-US-37.19.198.160 560M 72ms
   type: ss
-  server: 137.184.174.93
-  port: 8080
-  cipher: rc4-md5
-  password: 14fFPrbezE3HDZzsMOr6
+  server: 37.19.198.160
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
   udp: true
-- name: US-US-156.146.38.17 327M 123ms
+- name: US-US-37.19.198.236 556M 72ms
+  type: ss
+  server: 37.19.198.236
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: US-US-156.146.38.17 523M 76ms
   type: ss
   server: 156.146.38.170
   port: 443
   cipher: aes-128-gcm
   password: shadowsocks
   udp: true
-- name: US-US-149.40.57.133 260M 60ms
-  type: ss
-  server: 149.40.57.133
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-US-156.146.38.16 286M 113ms
+- name: US-US-156.146.38.16 515M 74ms
   type: ss
   server: 156.146.38.169
   port: 443
   cipher: aes-128-gcm
   password: shadowsocks
   udp: true
-- name: US-US-66.23.203.21- 319M 160ms
-  type: trojan
-  server: 66.23.203.21
-  port: 59689
-  password: ae7eb4dwyaz25pxwgq59
-  udp: true
-  skip-cert-verify: true
-  sni: 66.23.203.21
-- name: US-US-172.111.36.12 316M 221ms
+- name: CA-CA-137.184.174.9 480M 75ms
   type: ss
-  server: 172.111.36.123
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  server: 137.184.174.93
+  port: 8080
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
   udp: true
-- name: US-US-95.215.201.18 294M 189ms
+- name: US-US-156.146.38.16 475M 82ms
   type: ss
-  server: 95.215.201.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-US-38.121.43.18- 319M 237ms
-  type: ss
-  server: 38.121.43.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-US-38.121.43.225 296M 231ms
-  type: ss
-  server: 38.121.43.225
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-US-162.251.62.31 292M 255ms
-  type: ss
-  server: 162.251.62.31
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-US-173.244.56.6- 222M 180ms
-  type: ss
-  server: 173.244.56.6
+  server: 156.146.38.168
   port: 443
   cipher: aes-128-gcm
   password: shadowsocks
   udp: true
-- name: US-US-38.22.17.129- 235M 222ms
+- name: US-US-149.40.57.138 449M 63ms
   type: ss
-  server: 38.22.17.129
+  server: 149.40.57.138
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: US-US-38.22.17.219- 232M 229ms
+- name: US-US-216.106.178.1 383M 31ms
   type: ss
-  server: 38.22.17.219
+  server: 216.106.178.169
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: US-US-169.197.142.6 204M 213ms
+- name: US-US-149.40.57.134 383M 63ms
   type: ss
-  server: 169.197.142.68
+  server: 149.40.57.134
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: US-US-23.150.152.38 170M 200ms
+- name: US-US-38.91.100.39- 309M 78ms
   type: ss
-  server: 23.150.152.38
+  server: 38.91.100.39
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: US-US-137.184.89.15 196M 276ms
+- name: US-US-193.151.160.9 403M 224ms
+  type: ss
+  server: 193.151.160.9
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-137.184.89.15 315M 160ms
   type: ss
   server: 137.184.89.151
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: CA-CA-149.22.95.183 164M 235ms
+- name: US-US-167.88.63.99- 319M 214ms
+  type: ss
+  server: 167.88.63.99
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-38.22.17.129- 318M 224ms
+  type: ss
+  server: 38.22.17.129
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-95.215.201.18 266M 161ms
+  type: ss
+  server: 95.215.201.18
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: CA-CA-149.22.95.183 255M 172ms
   type: ss
   server: 149.22.95.183
   port: 443
   cipher: aes-128-gcm
   password: shadowsocks
   udp: true
-- name: NL-AE-151.241.19.36 189M 255ms
+- name: US-US-169.197.142.6 249M 163ms
   type: ss
-  server: 151.241.19.36
+  server: 169.197.142.68
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: NL-AE-151.241.19.29 183M 255ms
+- name: US-US-162.251.62.31 299M 263ms
   type: ss
-  server: 151.241.19.29
+  server: 162.251.62.31
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: GB-GB-198.244.202.2 200M 238ms
+- name: US-US-173.244.56.6- 231M 166ms
   type: ss
-  server: 198.244.202.215
+  server: 173.244.56.6
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: US-US-172.111.36.12 233M 206ms
+  type: ss
+  server: 172.111.36.123
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: GB-GB-185.176.206.9 206M 260ms
+- name: US-US-23.150.152.38 183M 149ms
+  type: ss
+  server: 23.150.152.38
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-38.121.43.18- 177M 228ms
+  type: ss
+  server: 38.121.43.18
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-37.19.198.244 96M 76ms
+  type: ss
+  server: 37.19.198.244
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: GB-GB-185.176.206.9 183M 293ms
   type: ss
   server: 185.176.206.9
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: NL-NL-109.201.152.1 170M 281ms
+- name: US-US-172.111.38.72 96M 117ms
   type: ss
-  server: 109.201.152.181
-  port: 443
-  cipher: aes-128-cfb
-  password: shadowsocks
+  server: 172.111.38.72
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: GB-GB-198.244.201.1 180M 238ms
+- name: GB-GB-198.244.201.1 166M 294ms
   type: ss
   server: 198.244.201.129
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: GB-GB-142.202.51.22 165M 262ms
+- name: NL-AE-151.241.19.36 150M 323ms
   type: ss
-  server: 142.202.51.22
+  server: 151.241.19.36
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: US-US-15.204.246.10 74M 28ms
+- name: GB-GB-198.244.202.2 164M 299ms
+  type: ss
+  server: 198.244.202.215
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: NL-AE-151.241.19.29 148M 317ms
+  type: ss
+  server: 151.241.19.29
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: NL-NL-109.201.152.1 144M 326ms
+  type: ss
+  server: 109.201.152.181
+  port: 443
+  cipher: aes-128-cfb
+  password: shadowsocks
+  udp: true
+- name: US-US-15.204.246.10 76M 72ms
   type: ss
   server: 15.204.246.108
   port: 8881
   cipher: aes-256-gcm
   password: kDWvXYZoTBcGkC4
   udp: true
-- name: GB-GB-38.114.120.22 160M 269ms
+- name: GB-GB-158.173.24.73 137M 281ms
   type: ss
-  server: 38.114.120.221
+  server: 158.173.24.73
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: NL-NL-158.173.20.17 124M 312ms
+  type: ss
+  server: 158.173.20.171
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: GB-GB-142.202.51.22 136M 312ms
+  type: ss
+  server: 142.202.51.22
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-149.40.57.133 61M 63ms
+  type: ss
+  server: 149.40.57.133
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
@@ -313,46 +312,46 @@ proxy-groups:
   tolerance: 50
   lazy: false
   proxies:
-  - US-US-185.230.230.1 1472M 54ms
-  - US-US-45.86.51.18-0 1350M 56ms
-  - US-US-37.19.198.244 1271M 36ms
-  - US-US-37.19.198.243 1143M 35ms
-  - US-US-37.19.198.160 1097M 34ms
-  - US-US-193.151.163.1 791M 37ms
-  - US-US-149.40.57.134 482M 51ms
-  - US-US-37.19.198.236 436M 33ms
-  - US-US-149.40.57.138 450M 51ms
-  - US-US-172.111.38.72 393M 68ms
-  - US-US-216.106.178.1 389M 82ms
-  - US-US-193.151.160.9 490M 209ms
-  - US-US-38.128.66.32- 364M 80ms
-  - US-US-156.146.38.16 367M 111ms
-  - CA-CA-137.184.174.9 333M 103ms
-  - US-US-156.146.38.17 327M 123ms
-  - US-US-149.40.57.133 260M 60ms
-  - US-US-156.146.38.16 286M 113ms
-  - US-US-66.23.203.21- 319M 160ms
-  - US-US-172.111.36.12 316M 221ms
-  - US-US-95.215.201.18 294M 189ms
-  - US-US-38.121.43.18- 319M 237ms
-  - US-US-38.121.43.225 296M 231ms
-  - US-US-162.251.62.31 292M 255ms
-  - US-US-173.244.56.6- 222M 180ms
-  - US-US-38.22.17.129- 235M 222ms
-  - US-US-38.22.17.219- 232M 229ms
-  - US-US-169.197.142.6 204M 213ms
-  - US-US-23.150.152.38 170M 200ms
-  - US-US-137.184.89.15 196M 276ms
-  - CA-CA-149.22.95.183 164M 235ms
-  - NL-AE-151.241.19.36 189M 255ms
-  - NL-AE-151.241.19.29 183M 255ms
-  - GB-GB-198.244.202.2 200M 238ms
-  - GB-GB-185.176.206.9 206M 260ms
-  - NL-NL-109.201.152.1 170M 281ms
-  - GB-GB-198.244.201.1 180M 238ms
-  - GB-GB-142.202.51.22 165M 262ms
-  - US-US-15.204.246.10 74M 28ms
-  - GB-GB-38.114.120.22 160M 269ms
+  - US-US-38.128.66.32- 567M 29ms
+  - US-US-193.151.163.1 623M 73ms
+  - US-US-45.86.51.18-0 660M 111ms
+  - US-US-185.230.230.1 655M 116ms
+  - US-US-37.19.198.243 569M 73ms
+  - US-US-37.19.198.160 560M 72ms
+  - US-US-37.19.198.236 556M 72ms
+  - US-US-156.146.38.17 523M 76ms
+  - US-US-156.146.38.16 515M 74ms
+  - CA-CA-137.184.174.9 480M 75ms
+  - US-US-156.146.38.16 475M 82ms
+  - US-US-149.40.57.138 449M 63ms
+  - US-US-216.106.178.1 383M 31ms
+  - US-US-149.40.57.134 383M 63ms
+  - US-US-38.91.100.39- 309M 78ms
+  - US-US-193.151.160.9 403M 224ms
+  - US-US-137.184.89.15 315M 160ms
+  - US-US-167.88.63.99- 319M 214ms
+  - US-US-38.22.17.129- 318M 224ms
+  - US-US-95.215.201.18 266M 161ms
+  - CA-CA-149.22.95.183 255M 172ms
+  - US-US-169.197.142.6 249M 163ms
+  - US-US-162.251.62.31 299M 263ms
+  - US-US-173.244.56.6- 231M 166ms
+  - US-US-172.111.36.12 233M 206ms
+  - US-US-23.150.152.38 183M 149ms
+  - US-US-38.121.43.18- 177M 228ms
+  - US-US-37.19.198.244 96M 76ms
+  - GB-GB-185.176.206.9 183M 293ms
+  - US-US-172.111.38.72 96M 117ms
+  - GB-GB-198.244.201.1 166M 294ms
+  - NL-AE-151.241.19.36 150M 323ms
+  - GB-GB-198.244.202.2 164M 299ms
+  - NL-AE-151.241.19.29 148M 317ms
+  - NL-NL-109.201.152.1 144M 326ms
+  - US-US-15.204.246.10 76M 72ms
+  - GB-GB-158.173.24.73 137M 281ms
+  - NL-NL-158.173.20.17 124M 312ms
+  - GB-GB-142.202.51.22 136M 312ms
+  - US-US-149.40.57.133 61M 63ms
   - WARP-CF
 rules:
 - GEOIP,CN,DIRECT

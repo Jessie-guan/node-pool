@@ -1,0 +1,54 @@
+{
+ "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge_base64.txt": {
+  "found_at": "2026-11-28 14:25",
+  "nodes": 4422
+ },
+ "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt": {
+  "found_at": "2026-11-28 14:25",
+  "nodes": 4422
+ },
+ "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_base64.txt": {
+  "found_at": "2026-11-28 14:25",
+  "nodes": 4422
+ },
+ "https://raw.githubusercontent.com/anaer/Sub/master/clash.yaml": {
+  "found_at": "2026-11-28 14:25",
+  "nodes": 2101
+ },
+ "https://raw.githubusercontent.com/yy1588133/proxy-pool/main/clash.yaml": {
+  "found_at": "2026-11-28 14:25",
+  "nodes": 400
+ },
+ "https://raw.githubusercontent.com/yy1588133/proxy-pool/master/clash.yaml": {
+  "found_at": "2026-11-28 14:25",
+  "nodes": 400
+ },
+ "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.txt": {
+  "found_at": "2026-11-28 14:25",
+  "nodes": 320
+ },
+ "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/main/list.txt": {
+  "found_at": "2026-11-28 14:25",
+  "nodes": 320
+ },
+ "https://raw.githubusercontent.com/ts-sf/fly/master/v2": {
+  "found_at": "2026-11-28 14:25",
+  "nodes": 201
+ },
+ "https://raw.githubusercontent.com/ts-sf/fly/main/v2": {
+  "found_at": "2026-11-28 14:25",
+  "nodes": 201
+ },
+ "https://raw.githubusercontent.com/wrfree/free/master/v2": {
+  "found_at": "2026-11-28 14:25",
+  "nodes": 52
+ },
+ "https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/main/list.yml": {
+  "found_at": "2026-11-28 14:25",
+  "nodes": 46
+ },
+ "https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml": {
+  "found_at": "2026-11-28 14:25",
+  "nodes": 25
+ }
+}
