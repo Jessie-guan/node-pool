@@ -321,21 +321,30 @@ def _api(path, timeout=8):
     return json.load(urllib.request.urlopen(API + path, timeout=timeout))
 
 
-def _wait_api(sec=30):
-    for _ in range(sec):
+def _wait_api(sec=180):
+    """内核加载大量节点需要时间，最多等 180 秒；每 15 秒打印一次进度"""
+    for i in range(sec):
         try:
             _api("/version", timeout=3)
+            if i > 0:
+                log(f"  内核就绪（等了 {i}s）")
             return True
         except Exception:
+            if i and i % 15 == 0:
+                log(f"  等待内核... {i}s")
             time.sleep(1)
     return False
 
 
-def probe(max_nodes=6000, max_test_bandwidth=60):
-    nodes = json.load(io.open(POOL_JSON, encoding="utf-8"))
-    if len(nodes) > max_nodes:
-        log(f"节点过多（{len(nodes)}），截取前 {max_nodes} 个测速")
-        nodes = nodes[:max_nodes]
+def probe(max_nodes=2500, max_test_bandwidth=60):
+    """测延迟 + 抽样测带宽。
+    max_nodes 控制单次喂给内核的节点数：太大内核加载慢（6000 会超时），
+    所以改为分批处理，每批 2500 个。"""
+    all_nodes = json.load(io.open(POOL_JSON, encoding="utf-8"))
+    log(f"池中共 {len(all_nodes)} 个节点")
+    if len(all_nodes) > max_nodes:
+        log(f"节点过多，本轮取前 {max_nodes} 个（其余下轮轮换）")
+    nodes = all_nodes[:max_nodes]
     names = [n["name"] for n in nodes]
 
     os.makedirs(WORK, exist_ok=True)
