@@ -1,9 +1,9 @@
-name: daily-node-refresh
+﻿name: daily-node-refresh
 
-# 每天 UTC 03:17（北京时间 11:17）自动清洗一次节点池
+# 每小时整点自动清洗节点池（UTC 0 分）
 on:
   schedule:
-    - cron: "17 3 * * *"
+    - cron: "0 * * * *"
   workflow_dispatch: {}      # 也可以手动点一下立即跑
 
 permissions:
@@ -59,7 +59,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "无变化，跳过提交"
           else
-            git commit -m "chore: 节点池每日清洗 $(date -u +'%Y-%m-%d %H:%M UTC') [skip ci]"
+            git commit -m "chore: 节点池小时刷新 $(date -u +'%Y-%m-%d %H:%M UTC') [skip ci]"
             # 远程可能有人工提交，先 rebase 再推，避免 non-fast-forward
             git pull --rebase --autostash origin main || true
             git push origin HEAD:main || {
