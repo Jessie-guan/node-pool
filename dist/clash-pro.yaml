@@ -1,10 +1,6 @@
-# ============================================================
-# Clash / mihomo 配置 - 免费节点整合版
-# 生成: 2026-11-27
-# 节点: 41 个（自动清洗 + 改名）
-# 策略组: 手动选择 / 自动测速 / 故障转移 / 流媒体 / 直连 / 拦截
-# 内核要求: mihomo (Clash.Meta) 1.16+
-# ============================================================
+# auto-generated 2026-11-28 14:38 UTC
+# available 47 nodes after cleaning
+# 48 proxies / 10 groups / 44 rules
 mixed-port: 7890
 socks-port: 7891
 allow-lan: true
@@ -13,273 +9,87 @@ mode: rule
 log-level: warning
 ipv6: false
 external-controller: 127.0.0.1:9090
-
 dns:
   enable: true
   ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
-    - 8.8.8.8
-  fallback:
-    - https://1.1.1.1/dns-query
-    - https://dns.google/dns-query
-  fallback-filter:
-    geoip: true
-    geoip-code: CN
-
+  - 223.5.5.5
+  - 119.29.29.29
+  - 8.8.8.8
 proxies:
-- name: US-US-185.230.230.1-729M-98ms
-  type: ss
-  server: 185.230.230.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-US-216.106.178.1-569M-32ms
-  type: ss
-  server: 216.106.178.169
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-US-193.151.163.1-608M-65ms
-  type: ss
-  server: 193.151.163.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-US-38.128.66.32-536M-24ms
-  type: ss
-  server: 38.128.66.32
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-178-605M-30ms
-  type: ss
-  server: 138.199.42.68
-  port: 8080
-  cipher: rc4-md5
-  password: 14fFPrbezE3HDZzsMOr6
-  udp: true
-- name: US-120-593M-31ms
-  type: vmess
-  server: 38.128.66.212
-  port: 1270
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: xmfhlpy.com
-- name: US-029-570M-19ms
-  type: ss
-  server: 67.220.73.178
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-023-569M-21ms
-  type: ss
-  server: 38.64.138.135
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-US-37.19.198.243-573M-72ms
-  type: ss
-  server: 37.19.198.243
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: US-109-569M-39ms
-  type: vmess
-  server: 162.251.60.97
-  port: 1270
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: xmfhlpy.com
-- name: US-US-45.86.51.18-0-620M-117ms
+- name: US-US-45.86.51.18-0 830M 98ms
   type: ss
   server: 45.86.51.18
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: US-US-37.19.198.244-557M-75ms
+- name: US-US-185.230.230.1 823M 114ms
   type: ss
-  server: 37.19.198.244
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: US-171-511M-32ms
-  type: vmess
-  server: 38.128.66.241
-  port: 1270
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: xmfhlpy.com
-- name: US-US-156.146.38.16-504M-76ms
-  type: ss
-  server: 156.146.38.169
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: US-158-577M-99ms
-  type: trojan
-  server: 69.164.240.85
-  port: 50875
-  password: nwilryafgkyvuxauc8pz
-  udp: true
-  sni: 69.164.240.85
-  skip-cert-verify: true
-- name: US-077-479M-50ms
-  type: vmess
-  server: 38.64.138.135
-  port: 1270
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: xmfhlpy.com
-- name: CA-CA-137.184.174.9-459M-78ms
-  type: ss
-  server: 137.184.174.93
-  port: 8080
-  cipher: rc4-md5
-  password: 14fFPrbezE3HDZzsMOr6
-  udp: true
-- name: US-US-156.146.38.17-453M-84ms
-  type: ss
-  server: 156.146.38.170
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: US-US-156.146.38.16-443M-87ms
-  type: ss
-  server: 156.146.38.168
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: US-US-149.40.57.134-359M-67ms
-  type: ss
-  server: 149.40.57.134
+  server: 185.230.230.18
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: US-083-404M-95ms
-  type: ss
-  server: 98.98.79.198
-  port: 8080
-  cipher: rc4-md5
-  password: 14fFPrbezE3HDZzsMOr6
-  udp: true
-- name: US-146-446M-178ms
-  type: ss
-  server: 185.215.132.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-- name: US-US-37.19.198.236-314M-85ms
-  type: ss
-  server: 37.19.198.236
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: US-US-149.40.57.138-283M-62ms
+- name: US-US-149.40.57.138 597M 14ms
   type: ss
   server: 149.40.57.138
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: US-US-149.40.57.133-273M-62ms
+- name: US-US-193.151.160.9 766M 170ms
   type: ss
-  server: 149.40.57.133
+  server: 193.151.160.9
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: US-027-296M-64ms
+- name: US-US-193.151.163.1 584M 86ms
   type: ss
-  server: 149.40.57.135
+  server: 193.151.163.18
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: US-95-oneclickvpnkey-372M-166ms
-  type: vless
-  server: 45.144.112.55
+- name: US-US-37.19.198.244 535M 78ms
+  type: ss
+  server: 37.19.198.244
   port: 443
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  cipher: aes-128-gcm
+  password: shadowsocks
   udp: true
-  skip-cert-verify: true
-  tls: true
-  servername: yahoo.com
-  reality-opts:
-    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
-    short-id: c39cc7310a
-  client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  network: tcp
-- name: US-US-172.111.38.72-290M-111ms
+- name: US-US-37.19.198.236 533M 79ms
   type: ss
-  server: 172.111.38.72
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  server: 37.19.198.236
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
   udp: true
-- name: US-128-384M-194ms
-  type: vmess
-  server: 172.111.38.246
-  port: 1270
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: xmfhlpy.com
-- name: US-US-137.184.89.15-316M-167ms
+- name: US-US-156.146.38.16 540M 92ms
   type: ss
-  server: 137.184.89.151
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  server: 156.146.38.169
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
   udp: true
-- name: US-125-347M-186ms
+- name: US-US-37.19.198.243 499M 91ms
   type: ss
-  server: 185.215.132.9
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  server: 37.19.198.243
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
   udp: true
-- name: US-US-95.215.201.18-302M-189ms
+- name: US-US-156.146.38.16 426M 90ms
   type: ss
-  server: 95.215.201.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  server: 156.146.38.168
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
   udp: true
-- name: US-US-66.23.203.21-254M-130ms
+- name: US-US-66.23.203.21- 427M 104ms
   type: trojan
   server: 66.23.203.21
   port: 59689
@@ -287,54 +97,257 @@ proxies:
   udp: true
   skip-cert-verify: true
   sni: 66.23.203.21
-- name: CA-CA-149.22.95.183-255M-174ms
+- name: US-US-216.106.178.1 373M 90ms
   type: ss
-  server: 149.22.95.183
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: CA-18-236M-91ms
-  type: ss
-  server: 138.197.141.58
-  port: 8080
-  cipher: rc4-md5
-  password: 14fFPrbezE3HDZzsMOr6
-  udp: true
-- name: US-US-169.197.142.6-251M-173ms
-  type: ss
-  server: 169.197.142.68
+  server: 216.106.178.169
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: US-US-173.244.56.6-241M-169ms
+- name: US-US-38.128.66.32- 363M 89ms
+  type: ss
+  server: 38.128.66.32
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-167.88.63.99- 379M 177ms
+  type: ss
+  server: 167.88.63.99
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-172.111.36.12 374M 183ms
+  type: ss
+  server: 172.111.36.123
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-38.91.100.39- 284M 78ms
+  type: ss
+  server: 38.91.100.39
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-156.146.38.17 316M 129ms
+  type: ss
+  server: 156.146.38.170
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: US-US-162.251.62.31 376M 224ms
+  type: ss
+  server: 162.251.62.31
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-172.111.38.72 280M 95ms
+  type: ss
+  server: 172.111.38.72
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-95.215.201.18 302M 140ms
+  type: ss
+  server: 95.215.201.18
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-149.40.57.133 217M 19ms
+  type: ss
+  server: 149.40.57.133
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-173.244.56.6- 281M 139ms
   type: ss
   server: 173.244.56.6
   port: 443
   cipher: aes-128-gcm
   password: shadowsocks
   udp: true
-- name: US-US-173.244.56.9-239M-170ms
+- name: CA-CA-137.184.174.9 279M 154ms
+  type: ss
+  server: 137.184.174.93
+  port: 8080
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+  udp: true
+- name: US-US-38.22.17.129- 301M 197ms
+  type: ss
+  server: 38.22.17.129
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-173.244.56.9- 259M 133ms
   type: ss
   server: 173.244.56.9
   port: 443
   cipher: aes-128-gcm
   password: shadowsocks
   udp: true
-- name: US-US-23.150.152.38-230M-154ms
+- name: US-US-137.184.89.15 274M 176ms
+  type: ss
+  server: 137.184.89.151
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-37.19.198.160 181M 82ms
+  type: ss
+  server: 37.19.198.160
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: US-US-169.197.142.6 229M 197ms
+  type: ss
+  server: 169.197.142.68
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-23.150.152.38 192M 161ms
   type: ss
   server: 23.150.152.38
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-- name: US-004-247M-165ms
+- name: CA-CA-149.22.95.183 192M 214ms
   type: ss
-  server: 38.143.66.146
+  server: 149.22.95.183
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: US-US-38.121.43.18- 147M 182ms
+  type: ss
+  server: 38.121.43.18
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: NL-NL-109.201.152.1 164M 303ms
+  type: ss
+  server: 109.201.152.181
+  port: 443
+  cipher: aes-128-cfb
+  password: shadowsocks
+  udp: true
+- name: GB-GB-198.244.202.2 175M 278ms
+  type: ss
+  server: 198.244.202.215
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: GB-GB-198.244.201.1 171M 286ms
+  type: ss
+  server: 198.244.201.129
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: NL-AE-151.241.19.29 156M 315ms
+  type: ss
+  server: 151.241.19.29
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: GB-GB-158.173.24.73 139M 287ms
+  type: ss
+  server: 158.173.24.73
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: CA-CA-51.222.141.12 69M 118ms
+  type: ss
+  server: 51.222.141.125
+  port: 445
+  cipher: aes-256-gcm
+  password: zDNVedRFPQexG9v
+  udp: true
+- name: GB-GB-38.114.120.22 132M 328ms
+  type: ss
+  server: 38.114.120.221
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-15.204.246.10 76M 238ms
+  type: ss
+  server: 15.204.246.108
+  port: 8881
+  cipher: aes-256-gcm
+  password: kDWvXYZoTBcGkC4
+  udp: true
+- name: GB-GB-142.202.51.22 97M 322ms
+  type: ss
+  server: 142.202.51.22
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-15.204.246.13 44M 80ms
+  type: ss
+  server: 15.204.246.132
+  port: 7307
+  cipher: aes-256-gcm
+  password: FoOiGlkAA9yPEGP
+  udp: true
+- name: CA-CA-51.222.12.127 46M 115ms
+  type: ss
+  server: 51.222.12.127
+  port: 445
+  cipher: aes-256-gcm
+  password: zDNVedRFPQexG9v
+  udp: true
+- name: US-US-38.22.17.219- 14M 183ms
+  type: ss
+  server: 38.22.17.219
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: CA-CA-51.79.49.116- 10M 114ms
+  type: ss
+  server: 51.79.49.116
+  port: 8882
+  cipher: aes-256-gcm
+  password: kDWvXYZoTBcGkC4
+  udp: true
+- name: US-US-149.40.57.134 2M 13ms
+  type: ss
+  server: 149.40.57.134
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- name: US-US-23.230.52.119 1M 327ms
+  type: ss
+  server: 23.230.52.119
+  port: 42878
+  cipher: chacha20-ietf-poly1305
+  password: ijoUwfdnkz7mX4pWdkSpmEixTZCt2TRm1JDr4BSaBAWkLxYGoXBHXadFKY5D5ZfoVTwqsx46jCmEUDnQUizJDYrM7B5anhnu
+  udp: true
+- name: US-US-198.98.53.130 0M 94ms
+  type: ss
+  server: 198.98.53.130
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: eDfN7SODQceIOmIAbtJJtK
   udp: true
 - name: WARP-CF
   type: wireguard
@@ -354,184 +367,208 @@ proxies:
   dns:
   - 1.1.1.1
   - 1.0.0.1
-
 proxy-groups:
-  - name: 🚀 节点选择
-    type: select
-    proxies:
-      - ♻️ 自动选择
-      - 🔯 故障转移
-      - US-US-185.230.230.1-729M-98ms
-      - US-US-216.106.178.1-569M-32ms
-      - US-US-193.151.163.1-608M-65ms
-      - US-US-38.128.66.32-536M-24ms
-      - US-178-605M-30ms
-      - US-120-593M-31ms
-      - US-029-570M-19ms
-      - US-023-569M-21ms
-      - US-US-37.19.198.243-573M-72ms
-      - US-109-569M-39ms
-      - US-US-45.86.51.18-0-620M-117ms
-      - US-US-37.19.198.244-557M-75ms
-      - US-171-511M-32ms
-      - US-US-156.146.38.16-504M-76ms
-      - US-158-577M-99ms
-      - US-077-479M-50ms
-      - CA-CA-137.184.174.9-459M-78ms
-      - US-US-156.146.38.17-453M-84ms
-      - US-US-156.146.38.16-443M-87ms
-      - US-US-149.40.57.134-359M-67ms
-      - US-083-404M-95ms
-      - US-146-446M-178ms
-      - US-US-37.19.198.236-314M-85ms
-      - US-US-149.40.57.138-283M-62ms
-      - US-US-149.40.57.133-273M-62ms
-      - US-027-296M-64ms
-      - US-95-oneclickvpnkey-372M-166ms
-      - US-US-172.111.38.72-290M-111ms
-      - US-128-384M-194ms
-      - US-US-137.184.89.15-316M-167ms
-      - US-125-347M-186ms
-      - US-US-95.215.201.18-302M-189ms
-      - US-US-66.23.203.21-254M-130ms
-      - CA-CA-149.22.95.183-255M-174ms
-      - CA-18-236M-91ms
-      - US-US-169.197.142.6-251M-173ms
-      - US-US-173.244.56.6-241M-169ms
-      - US-US-173.244.56.9-239M-170ms
-      - US-US-23.150.152.38-230M-154ms
-      - US-004-247M-165ms
-      - WARP-CF
-      - DIRECT
-
-  - name: ♻️ 自动选择
-    type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    lazy: false
-    proxies:
-      - US-US-185.230.230.1-729M-98ms
-      - US-US-216.106.178.1-569M-32ms
-      - US-US-193.151.163.1-608M-65ms
-      - US-US-38.128.66.32-536M-24ms
-      - US-178-605M-30ms
-      - US-120-593M-31ms
-      - US-029-570M-19ms
-      - US-023-569M-21ms
-      - US-US-37.19.198.243-573M-72ms
-      - US-109-569M-39ms
-      - US-US-45.86.51.18-0-620M-117ms
-      - US-US-37.19.198.244-557M-75ms
-      - US-171-511M-32ms
-      - US-US-156.146.38.16-504M-76ms
-      - US-158-577M-99ms
-      - US-077-479M-50ms
-      - CA-CA-137.184.174.9-459M-78ms
-      - US-US-156.146.38.17-453M-84ms
-      - US-US-156.146.38.16-443M-87ms
-      - US-US-149.40.57.134-359M-67ms
-      - US-083-404M-95ms
-      - US-146-446M-178ms
-      - US-US-37.19.198.236-314M-85ms
-      - US-US-149.40.57.138-283M-62ms
-      - US-US-149.40.57.133-273M-62ms
-      - US-027-296M-64ms
-      - US-95-oneclickvpnkey-372M-166ms
-      - US-US-172.111.38.72-290M-111ms
-      - US-128-384M-194ms
-      - US-US-137.184.89.15-316M-167ms
-      - US-125-347M-186ms
-      - US-US-95.215.201.18-302M-189ms
-      - US-US-66.23.203.21-254M-130ms
-      - CA-CA-149.22.95.183-255M-174ms
-      - CA-18-236M-91ms
-      - US-US-169.197.142.6-251M-173ms
-      - US-US-173.244.56.6-241M-169ms
-      - US-US-173.244.56.9-239M-170ms
-      - US-US-23.150.152.38-230M-154ms
-      - US-004-247M-165ms
-      - WARP-CF
-
-  - name: 🔯 故障转移
-    type: fallback
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    proxies:
-      - US-US-185.230.230.1-729M-98ms
-      - US-US-216.106.178.1-569M-32ms
-      - US-US-193.151.163.1-608M-65ms
-      - US-US-38.128.66.32-536M-24ms
-      - US-178-605M-30ms
-      - US-120-593M-31ms
-      - US-029-570M-19ms
-      - US-023-569M-21ms
-
-  - name: 🌍 国外媒体
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ♻️ 自动选择
-      - DIRECT
-
-  - name: 📲 电报消息
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ♻️ 自动选择
-      - DIRECT
-
-  - name: Ⓜ️ 微软服务
-    type: select
-    proxies:
-      - DIRECT
-      - 🚀 节点选择
-
-  - name: 🍎 苹果服务
-    type: select
-    proxies:
-      - DIRECT
-      - 🚀 节点选择
-
-  - name: 🎯 全球直连
-    type: select
-    proxies:
-      - DIRECT
-      - 🚀 节点选择
-
-  - name: 🛑 广告拦截
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
-
-  - name: 🐟 漏网之鱼
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - DIRECT
-
+- name: 🚀 节点选择
+  type: select
+  proxies:
+  - ♻️ 自动选择
+  - 🔯 故障转移
+  - US-US-45.86.51.18-0 830M 98ms
+  - US-US-185.230.230.1 823M 114ms
+  - US-US-149.40.57.138 597M 14ms
+  - US-US-193.151.160.9 766M 170ms
+  - US-US-193.151.163.1 584M 86ms
+  - US-US-37.19.198.244 535M 78ms
+  - US-US-37.19.198.236 533M 79ms
+  - US-US-156.146.38.16 540M 92ms
+  - US-US-37.19.198.243 499M 91ms
+  - US-US-156.146.38.16 426M 90ms
+  - US-US-66.23.203.21- 427M 104ms
+  - US-US-216.106.178.1 373M 90ms
+  - US-US-38.128.66.32- 363M 89ms
+  - US-US-167.88.63.99- 379M 177ms
+  - US-US-172.111.36.12 374M 183ms
+  - US-US-38.91.100.39- 284M 78ms
+  - US-US-156.146.38.17 316M 129ms
+  - US-US-162.251.62.31 376M 224ms
+  - US-US-172.111.38.72 280M 95ms
+  - US-US-95.215.201.18 302M 140ms
+  - US-US-149.40.57.133 217M 19ms
+  - US-US-173.244.56.6- 281M 139ms
+  - CA-CA-137.184.174.9 279M 154ms
+  - US-US-38.22.17.129- 301M 197ms
+  - US-US-173.244.56.9- 259M 133ms
+  - US-US-137.184.89.15 274M 176ms
+  - US-US-37.19.198.160 181M 82ms
+  - US-US-169.197.142.6 229M 197ms
+  - US-US-23.150.152.38 192M 161ms
+  - CA-CA-149.22.95.183 192M 214ms
+  - US-US-38.121.43.18- 147M 182ms
+  - NL-NL-109.201.152.1 164M 303ms
+  - GB-GB-198.244.202.2 175M 278ms
+  - GB-GB-198.244.201.1 171M 286ms
+  - NL-AE-151.241.19.29 156M 315ms
+  - GB-GB-158.173.24.73 139M 287ms
+  - CA-CA-51.222.141.12 69M 118ms
+  - GB-GB-38.114.120.22 132M 328ms
+  - US-US-15.204.246.10 76M 238ms
+  - GB-GB-142.202.51.22 97M 322ms
+  - US-US-15.204.246.13 44M 80ms
+  - CA-CA-51.222.12.127 46M 115ms
+  - US-US-38.22.17.219- 14M 183ms
+  - CA-CA-51.79.49.116- 10M 114ms
+  - US-US-149.40.57.134 2M 13ms
+  - US-US-23.230.52.119 1M 327ms
+  - US-US-198.98.53.130 0M 94ms
+  - WARP-CF
+  - DIRECT
+- name: ♻️ 自动选择
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+  lazy: false
+  proxies:
+  - US-US-45.86.51.18-0 830M 98ms
+  - US-US-185.230.230.1 823M 114ms
+  - US-US-149.40.57.138 597M 14ms
+  - US-US-193.151.160.9 766M 170ms
+  - US-US-193.151.163.1 584M 86ms
+  - US-US-37.19.198.244 535M 78ms
+  - US-US-37.19.198.236 533M 79ms
+  - US-US-156.146.38.16 540M 92ms
+  - US-US-37.19.198.243 499M 91ms
+  - US-US-156.146.38.16 426M 90ms
+  - US-US-66.23.203.21- 427M 104ms
+  - US-US-216.106.178.1 373M 90ms
+  - US-US-38.128.66.32- 363M 89ms
+  - US-US-167.88.63.99- 379M 177ms
+  - US-US-172.111.36.12 374M 183ms
+  - US-US-38.91.100.39- 284M 78ms
+  - US-US-156.146.38.17 316M 129ms
+  - US-US-162.251.62.31 376M 224ms
+  - US-US-172.111.38.72 280M 95ms
+  - US-US-95.215.201.18 302M 140ms
+  - US-US-149.40.57.133 217M 19ms
+  - US-US-173.244.56.6- 281M 139ms
+  - CA-CA-137.184.174.9 279M 154ms
+  - US-US-38.22.17.129- 301M 197ms
+  - US-US-173.244.56.9- 259M 133ms
+  - US-US-137.184.89.15 274M 176ms
+  - US-US-37.19.198.160 181M 82ms
+  - US-US-169.197.142.6 229M 197ms
+  - US-US-23.150.152.38 192M 161ms
+  - CA-CA-149.22.95.183 192M 214ms
+  - US-US-38.121.43.18- 147M 182ms
+  - NL-NL-109.201.152.1 164M 303ms
+  - GB-GB-198.244.202.2 175M 278ms
+  - GB-GB-198.244.201.1 171M 286ms
+  - NL-AE-151.241.19.29 156M 315ms
+  - GB-GB-158.173.24.73 139M 287ms
+  - CA-CA-51.222.141.12 69M 118ms
+  - GB-GB-38.114.120.22 132M 328ms
+  - US-US-15.204.246.10 76M 238ms
+  - GB-GB-142.202.51.22 97M 322ms
+  - US-US-15.204.246.13 44M 80ms
+  - CA-CA-51.222.12.127 46M 115ms
+  - US-US-38.22.17.219- 14M 183ms
+  - CA-CA-51.79.49.116- 10M 114ms
+  - US-US-149.40.57.134 2M 13ms
+  - US-US-23.230.52.119 1M 327ms
+  - US-US-198.98.53.130 0M 94ms
+  - WARP-CF
+- name: 🔯 故障转移
+  type: fallback
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - US-US-45.86.51.18-0 830M 98ms
+  - US-US-185.230.230.1 823M 114ms
+  - US-US-149.40.57.138 597M 14ms
+  - US-US-193.151.160.9 766M 170ms
+  - US-US-193.151.163.1 584M 86ms
+  - US-US-37.19.198.244 535M 78ms
+  - US-US-37.19.198.236 533M 79ms
+  - US-US-156.146.38.16 540M 92ms
+- name: 🌍 国外媒体
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  - DIRECT
+- name: 📲 电报消息
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  - DIRECT
+- name: Ⓜ️ 微软服务
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+- name: 🍎 苹果服务
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+- name: 🎯 全球直连
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+- name: 🛑 广告拦截
+  type: select
+  proxies:
+  - REJECT
+  - DIRECT
+- name: 🐟 漏网之鱼
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - DIRECT
 rules:
-  # 局域网直连
-  - GEOIP,LAN,DIRECT,no-resolve
-  # 广告拦截
-  - GEOSITE,category-ads-all,🛑 广告拦截
-  # 微软
-  - GEOSITE,microsoft,Ⓜ️ 微软服务
-  # 苹果
-  - GEOSITE,apple,🍎 苹果服务
-  # 电报
-  - GEOSITE,telegram,📲 电报消息
-  - GEOIP,telegram,📲 电报消息,no-resolve
-  # 流媒体
-  - GEOSITE,youtube,🌍 国外媒体
-  - GEOSITE,netflix,🌍 国外媒体
-  - GEOSITE,disney,🌍 国外媒体
-  - GEOSITE,hbo,🌍 国外媒体
-  - GEOSITE,bilibili,🎯 全球直连
-  - GEOSITE,spotify,🌍 国外媒体
-  # 国内直连
-  - GEOSITE,cn,🎯 全球直连
-  - GEOIP,CN,🎯 全球直连
-  # 剩余流量走代理
-  - MATCH,🐟 漏网之鱼
+- GEOIP,LAN,🎯 全球直连,no-resolve
+- DOMAIN-SUFFIX,doubleclick.net,🛑 广告拦截
+- DOMAIN-SUFFIX,googlesyndication.com,🛑 广告拦截
+- DOMAIN-SUFFIX,googleadservices.com,🛑 广告拦截
+- DOMAIN-SUFFIX,adservice.google.com,🛑 广告拦截
+- DOMAIN-SUFFIX,telegram.org,📲 电报消息
+- DOMAIN-SUFFIX,t.me,📲 电报消息
+- DOMAIN-SUFFIX,tdesktop.com,📲 电报消息
+- DOMAIN-SUFFIX,telegram.me,📲 电报消息
+- GEOIP,telegram,📲 电报消息,no-resolve
+- DOMAIN-SUFFIX,youtube.com,🌍 国外媒体
+- DOMAIN-SUFFIX,googlevideo.com,🌍 国外媒体
+- DOMAIN-SUFFIX,ytimg.com,🌍 国外媒体
+- DOMAIN-SUFFIX,ggpht.com,🌍 国外媒体
+- DOMAIN-SUFFIX,youtu.be,🌍 国外媒体
+- DOMAIN-SUFFIX,netflix.com,🌍 国外媒体
+- DOMAIN-SUFFIX,nflxvideo.net,🌍 国外媒体
+- DOMAIN-SUFFIX,nflximg.net,🌍 国外媒体
+- DOMAIN-SUFFIX,disneyplus.com,🌍 国外媒体
+- DOMAIN-SUFFIX,hbomax.com,🌍 国外媒体
+- DOMAIN-SUFFIX,spotify.com,🌍 国外媒体
+- DOMAIN-SUFFIX,tiktokv.com,🌍 国外媒体
+- DOMAIN-SUFFIX,microsoft.com,Ⓜ️ 微软服务
+- DOMAIN-SUFFIX,office.com,Ⓜ️ 微软服务
+- DOMAIN-SUFFIX,live.com,Ⓜ️ 微软服务
+- DOMAIN-SUFFIX,bing.com,Ⓜ️ 微软服务
+- DOMAIN-SUFFIX,msn.com,Ⓜ️ 微软服务
+- DOMAIN-SUFFIX,skype.com,Ⓜ️ 微软服务
+- DOMAIN-SUFFIX,apple.com,🍎 苹果服务
+- DOMAIN-SUFFIX,icloud.com,🍎 苹果服务
+- DOMAIN-SUFFIX,cdn-apple.com,🍎 苹果服务
+- DOMAIN-SUFFIX,mzstatic.com,🍎 苹果服务
+- DOMAIN-SUFFIX,cn,🎯 全球直连
+- DOMAIN-SUFFIX,bilibili.com,🎯 全球直连
+- DOMAIN-SUFFIX,qq.com,🎯 全球直连
+- DOMAIN-SUFFIX,taobao.com,🎯 全球直连
+- DOMAIN-SUFFIX,alipay.com,🎯 全球直连
+- DOMAIN-SUFFIX,baidu.com,🎯 全球直连
+- DOMAIN-SUFFIX,jd.com,🎯 全球直连
+- DOMAIN-SUFFIX,zhihu.com,🎯 全球直连
+- DOMAIN-SUFFIX,weibo.com,🎯 全球直连
+- DOMAIN-SUFFIX,163.com,🎯 全球直连
+- GEOIP,CN,🎯 全球直连
+- MATCH,🐟 漏网之鱼
