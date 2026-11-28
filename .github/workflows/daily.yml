@@ -92,7 +92,7 @@ jobs:
           ls -la sources.txt retired.txt source_stats.json collect_result.json discovered.json 2>&1 || true
 
           # 逐个 add，任何一个失败都不影响其他
-          for f in dist/clash.yaml dist/sub.txt alive.json pool.json \
+          for f in dist/clash.yaml dist/clash-pro.yaml dist/sub.txt alive.json pool.json \
                    sources.txt retired.txt source_stats.json collect_result.json discovered.json; do
             if [ -f "$f" ]; then
               git add "$f" && echo "  added: $f" || echo "  add失败: $f"
